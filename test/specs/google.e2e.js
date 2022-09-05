@@ -4,8 +4,7 @@ describe("Google", function () {
   it("should display he correct title", async function () {
     await GooglePage.open();
 
-    const title = await browser.getTitle();
-    expect(title).toEqual("Google");
+    await expect(browser).toHaveTitleContaining("Google");
   });
 
   it("should search 'Test Automation Learning' and navigate to the Udemy link", async function () {
@@ -20,7 +19,6 @@ describe("Google", function () {
     await GooglePage.search(searchTerm);
     await GooglePage.clickTarget(target);
 
-    const title = await browser.getTitle();
-    expect(title).toContain("Automation Testing");
+    await expect(browser).toHaveTitleContaining("Automation Testing");
   });
 });
