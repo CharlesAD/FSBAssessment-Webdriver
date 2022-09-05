@@ -10,7 +10,17 @@ describe("Google", function () {
 
   it("should search 'Test Automation Learning' and navigate to the Udemy link", async function () {
     const searchTerm = "Test Automation Learning";
+    const target = "Udemy";
 
-    const search = await GooglePage.searchGoogle;
+    await GooglePage.open();
+
+    const cookie = $("div=Reject all");
+    await cookie.click();
+
+    await GooglePage.search(searchTerm);
+    await GooglePage.clickTarget(target);
+
+    const title = await browser.getTitle();
+    expect(title).toContain("Automation Testing");
   });
 });
