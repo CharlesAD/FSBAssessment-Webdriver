@@ -7,4 +7,10 @@ describe("Google", function () {
     const title = await browser.getTitle();
     expect(title).toEqual("Google");
   });
+
+  it("should search 'Test Automation Learning' and navigate to the Udemy link", async function () {
+    const searchTerm = "Test Automation Learning";
+
+    const search = await GooglePage.searchGoogle;
+  });
 });
