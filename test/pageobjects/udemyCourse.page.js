@@ -32,14 +32,6 @@ class UdemyCoursePage extends Page {
   async selectHighestRated(value = "highest-rated") {
     await this.dropdown.selectByVisibleText(value);
   }
-
-  check4HigherRatedCourse(rating2Beat) {
-    return $(
-      `span[data-purpose='rating-number']=${(Number(rating2Beat) + 0.1).toFixed(
-        1
-      )}`
-    );
-  }
 }
 
 export default new UdemyCoursePage();
